@@ -1,13 +1,14 @@
 let express = require("express");
 let app = express();
 app.use(express.json());
-
+//Middleware
 let checkToken(req,res,next)=>{
   console.log("Welcome")
+  next();
 }
 app.use(checkToken)//Middleware
 
-app.get("/", (req, res) => {
+app.get("/", (req, res) => {//hhtp://localhost:8000/
   res.send({ status: 1, msg: "Home page ApI" });
 });
 app.get("/news", (req, res) => {
